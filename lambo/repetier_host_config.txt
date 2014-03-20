@@ -1,0 +1,40 @@
+connection ->
+  connector: serial
+  port: <varies>
+  baud rate: 115200
+  transfer protocol: autodetect
+  reset on connect: DTR low->high->low
+  reset on emergency: send emergency command and reconnect
+  receive cache size: 63
+  use ping-pong communication: no
+
+printer ->
+  travel feed rate: 4800 mm/min
+  zaxis feed rate: 100 mm/min
+  default extruder temperature: 215 c
+  default heated bed temperature: 55 c
+  number of extruder: 1
+  check extruder bed and temperature: yes
+  remove M105 requests from log: no
+  check every N seconds: 3
+  park position ->
+    x: 0 mm
+    y: 0 mm
+    z-min: 0 mm
+  go to park position after job/kill: yes
+  disable extruder after job/kill: yes
+  disable heated bed after job/kill: yes
+  disable motors after job/kill: no
+  add to computed printing time: 8%
+
+printer shape ->
+  printer type: rostock printer (circular print shape)
+  home x: min
+  home y: min
+  home z: min
+  printable radius: 95mm
+  printable height: 194mm
+
+advanced ->
+  filter path and parameter (dont include quotes): "yourFilter #in #out"
+  run filter after every slice: no
